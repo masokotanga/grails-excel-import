@@ -539,7 +539,7 @@ public class ExcelImportService {
 		if (!propertyConfiguration || !propertyConfiguration.expectedType) {
 			//... null handling
 			//directly compatible with expected type of setCellValue
-			if ([Double.TYPE, String.class, Boolean.TYPE].any {it.isInstance(value)}) {
+			if ([Double.TYPE, String.class, Boolean.TYPE, Boolean.class].any {it.isInstance(value)}) {
 				origcell.setCellValue(value)
 				return
 			}
