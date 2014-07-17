@@ -620,7 +620,7 @@ public class ExcelImportService {
 
 	Cell getCellOrCreate(Sheet currentSheet, String ref) {
 		CellReference cellReference = new CellReference(ref);
-		Row row = currentSheet.getRow(cellReference.getRow());
+		Row row = currentSheet.getRow(cellReference.getRow()) ?: currentSheet.createRow(cellReference.getRow());
 		row.getCell(cellReference.getCol()) ?: row.createCell(cellReference.getCol(), Cell.CELL_TYPE_BLANK)
 	}
 
